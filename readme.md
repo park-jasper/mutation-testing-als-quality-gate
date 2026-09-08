@@ -1,11 +1,3 @@
-## Mutation Testing als Immunsystem für den Code - damit sich Bugs erst gar nicht ausbreiten
-
-## Mutation Testing als Monitoring für den Code - damit Bugs direkt entdeckt und eliminiert werden
-
-## Mutation Testing als Monitoring für deine Tests - damit Bugs nicht unentdeckt bleiben
-
-## Mutation Testing als Qualitätskontrolle für deine Tests - damit Bugs nicht unentdeckt bleiben
-
 # Mutation Testing als Quality-Gate für KI-generierten Code
 
 ## Wenn KI den Code schreibt, und KI die Tests schreibt - wer testet dann die Tests? Ein Praxis-Guide für Mutation Testing
