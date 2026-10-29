@@ -1,0 +1,57 @@
+name: Build and test mutation testing demo with dashboard
+
+on:
+  pull_request:
+    paths:
+      - 'demo/MutationTestingBasics/**'
+      - '.github/workflows/build-and-test.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'demo/MutationTestingBasics/**'
+      - '.github/workflows/build-and-test.yml'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    environment: Build
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+#region Install
+      - name: Install dotnet-stryker
+        run: >
+          dotnet tool install dotnet-stryker
+          --tool-path ${{ github.workspace }}/tools
+        working-directory: demo/MutationTestingBasics
+#endregion
+
+      - name: Restore dependencies
+        run: dotnet restore MutationTestingBasics.slnx
+        working-directory: demo/MutationTestingBasics
+
+      - name: Build
+        run: dotnet build MutationTestingBasics.slnx --no-restore
+        working-directory: demo/MutationTestingBasics
+
+      - name: Test
+        run: dotnet test MutationTestingBasics.slnx --no-build
+        working-directory: demo/MutationTestingBasics
+
+#region Run
+      - name: Run Mutation Tests
+        env:
+          dashboard_api_key: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
+        run: >
+          ${{ github.workspace }}/tools/dotnet-stryker
+          --config-file stryker-config-ci-cd.json
+          --with-baseline:${{ }}
+          --dashboard-api-key $dashboard_api_key
+        working-directory: demo/MutationTestingBasics/TestCode
+#endregion
