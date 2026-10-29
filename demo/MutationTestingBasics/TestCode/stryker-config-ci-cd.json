@@ -9,8 +9,7 @@
       "**/*"
     ],
     "project-info": {
-      "name": "github.com/park-jasper/mutation-testing-als-quality-gate",
-      "module": "QuickSort"
+      "name": "github.com/park-jasper/mutation-testing-als-quality-gate"
     },
     "solution": null,
     "configuration": null,
