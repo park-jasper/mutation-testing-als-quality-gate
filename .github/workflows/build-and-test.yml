@@ -1,0 +1,39 @@
+name: Build and test mutation testing demo
+
+on:
+  pull_request:
+    paths:
+      - 'demo/MutationTestingBasics/**'
+      - '.github/workflows/build-and-test.yml'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Install dotnet-stryker
+        run: dotnet tool install dotnet-stryker --tool-path ${{ github.workspace }}/tools
+        working-directory: demo/MutationTestingBasics
+
+      - name: Restore dependencies
+        run: dotnet restore MutationTestingBasics.slnx
+        working-directory: demo/MutationTestingBasics
+
+      - name: Build
+        run: dotnet build MutationTestingBasics.slnx --no-restore
+        working-directory: demo/MutationTestingBasics
+
+      - name: Test
+        run: dotnet test MutationTestingBasics.slnx --no-build
+        working-directory: demo/MutationTestingBasics
+
+      - name: Run Mutation Tests
+        run: ${{ github.workspace }}/tools/dotnet-stryker --config-file stryker-config-test-suite-3.json --threshold-high 90 --threshold-low 80 --break-at 70
+        working-directory: demo/MutationTestingBasics/TestCode
