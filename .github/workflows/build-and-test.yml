@@ -19,7 +19,7 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Install dotnet-stryker
-        run: dotnet tool restore
+        run: dotnet tool install dotnet-stryker --tool-path ${{ github.workspace }}/tools
         working-directory: demo/MutationTestingBasics
 
       - name: Restore dependencies
@@ -35,5 +35,5 @@ jobs:
         working-directory: demo/MutationTestingBasics
 
       - name: Run Mutation Tests
-        run: dotnet-stryker  --config-file stryker-config-test-suite-1.json --break-at 80
+        run: ${{ github.workspace }}/tools/dotnet-stryker  --config-file stryker-config-test-suite-1.json --break-at 80
         working-directory: demo/MutationTestingBasics/TestCode
