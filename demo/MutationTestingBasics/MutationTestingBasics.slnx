@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="dotnet-tools.json" />
+    <File Path="stryker-config.json" />
+  </Folder>
+  <Project Path="TestCode/TestCode.csproj" />
+  <Project Path="UserCode/UserCode.csproj" />
+</Solution>

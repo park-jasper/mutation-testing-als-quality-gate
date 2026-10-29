@@ -1,0 +1,15 @@
+---
+
+- Motivation: Gain vs. Risk
+- Product Preparation & Standards
+- Andere Spec-Driven Frameworks
+- Vibe vs AgentOS vs now
+- Skills
+- Meta Promptimg
+- Sepc-Driven Artefakte zeigen
+- Specs, die wir vergessen hätten
+- Product-Demo
+- public-site.com Bug
+- Welcher Agent / welches Model
+- Learnings?
+- 100%?
