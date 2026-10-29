@@ -18,6 +18,10 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
+      - name: Install dotnet-stryker
+        run: dotnet tool install
+        working-directory: demo/MutationTestingBasics
+
       - name: Restore dependencies
         run: dotnet restore MutationTestingBasics.slnx
         working-directory: demo/MutationTestingBasics
@@ -29,3 +33,7 @@ jobs:
       - name: Test
         run: dotnet test MutationTestingBasics.slnx --no-build
         working-directory: demo/MutationTestingBasics
+
+      - name: Run Mutation Tests
+        run: dotnet-stryker  --config-file stryker-config-test-suite-1.json --break-at 80
+        working-directory: demo/MutationTestingBasics/TestCode
