@@ -48,3 +48,7 @@ src: ./pages/final-test-set.md
 ---
 src: ./pages/suite-3-report.md
 ---
+
+---
+src: ./pages/pipeline-setup.md
+---
