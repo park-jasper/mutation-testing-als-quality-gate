@@ -19,7 +19,7 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Install dotnet-stryker
-        run: dotnet tool install
+        run: dotnet tool restore
         working-directory: demo/MutationTestingBasics
 
       - name: Restore dependencies
