@@ -35,5 +35,5 @@ jobs:
         working-directory: demo/MutationTestingBasics
 
       - name: Run Mutation Tests
-        run: ${{ github.workspace }}/tools/dotnet-stryker  --config-file stryker-config-test-suite-1.json --break-at 80
+        run: ${{ github.workspace }}/tools/dotnet-stryker  --config-file stryker-config-test-suite-3.json --break-at 80
         working-directory: demo/MutationTestingBasics/TestCode
