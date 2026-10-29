@@ -8,6 +8,10 @@
     "mutate": [
       "**/*"
     ],
+    "project-info": {
+      "name": "github.com/park-jasper/mutation-testing-als-quality-gate",
+      "module": "QuickSort"
+    },
     "solution": null,
     "configuration": null,
     "target-framework": null,
