@@ -8,6 +8,5 @@ public class EmptyTests
     [Fact]
     public void EmptyTest()
     {
-        
     }
 }
