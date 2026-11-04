@@ -51,7 +51,7 @@ jobs:
         run: >
           ${{ github.workspace }}/tools/dotnet-stryker
           --config-file stryker-config-ci-cd.json
-          --with-baseline::${{ github.event.pull_request.base.ref || github.ref_name }}
+          --with-baseline:${{ github.event.pull_request.base.ref || github.ref_name }}
           --dashboard-api-key $dashboard_api_key
           --version ${{ github.event.pull_request.head.ref ||  github.ref_name }}
         working-directory: demo/MutationTestingBasics/TestCode
