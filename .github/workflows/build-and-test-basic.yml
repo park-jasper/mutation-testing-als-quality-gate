@@ -15,7 +15,7 @@ jobs:
       - name: Install dotnet-stryker
         run: >
           dotnet tool install dotnet-stryker
-          --tool-path ${{ github.workspace }}/tools
+          --tool-path ${{ runner.temp }}/dotnet-tools
         working-directory: demo/MutationTestingBasics
 #endregion
 
@@ -34,7 +34,7 @@ jobs:
 #region Run
       - name: Run Mutation Tests
         run: >
-          ${{ github.workspace }}/tools/dotnet-stryker
+          ${{ runner.temp }}/dotnet-tools/dotnet-stryker
           --config-file stryker-config-test-suite-3.json
           --threshold-high 90
           --threshold-low 80
