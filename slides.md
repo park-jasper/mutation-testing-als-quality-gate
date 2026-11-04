@@ -14,7 +14,19 @@ src: ./pages/speaker-info.md
 ---
 
 ---
-src: ./pages/development-cycle.md
+src: ./pages/computer-division.md
+---
+
+---
+src: ./pages/ibm-mainframe.md
+---
+
+---
+src: ./pages/s-unit.md
+---
+
+---
+src: ./pages/mutation-testing-history.md
 ---
 
 ---
