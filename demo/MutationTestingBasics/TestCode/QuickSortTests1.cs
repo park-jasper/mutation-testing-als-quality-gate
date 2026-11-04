@@ -5,10 +5,10 @@ namespace TestCode;
 
 public class QuickSortTests1
 {
-    private readonly IComparer<int> comparer = Comparer<int>.Default;
-
     // --- Initial Test Set ---
     #region InitialTestSet
+    private readonly IComparer<int> comparer = Comparer<int>.Default;
+
     [Fact]
     public void EmptyListTest()
     {
